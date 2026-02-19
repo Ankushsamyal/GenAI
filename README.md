@@ -7,8 +7,8 @@ This repository contains my practice code, experiments, and projects while explo
 🛠️ Tech Stack
 
 JavaScript/Node.js
-Python
-AI/ML Libraries
+Typescript 
+openAI
 
 🤝 Connect
 
@@ -17,3 +17,4 @@ Email: dev.ankushsamyal@gmail.com
 
 
 ⭐ Keep learning, keep coding!
+

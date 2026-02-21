@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": " node -r ts-node --env-file=.env src/index.ts"
+    "start": " node -r ts-node/register --env-file=.env src/index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "groq-sdk": "^0.37.0",
-    "openai": "^6.22.0"
+    "openai": "^6.22.0",
+    "tiktoken": "^1.0.22"
   },
   "devDependencies": {
     "@types/node": "^25.3.0",

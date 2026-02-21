@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": " node --env-file=.env src/index.js"
+    "start": " node -r ts-node --env-file=.env src/index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "groq-sdk": "^0.37.0",
     "openai": "^6.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

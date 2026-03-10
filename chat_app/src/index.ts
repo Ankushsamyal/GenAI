@@ -1,8 +1,12 @@
 import Groq from "groq-sdk";
+import { encodingForModel } from "js-tiktoken";
+import { deleteOlderMessages } from "./helper/documentHelper";
 
 const groq = new Groq();
+export const encode = encodingForModel("gpt-4o"); 
+export const MAX_TOKEN = 700;
 
-const context: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
+export const context: Groq.Chat.Completions.ChatCompletionMessageParam[] = [
     {
         role: 'system',
         content: ' you are a helpful chatbot'
@@ -19,7 +23,9 @@ async function createChatCompletions() {
         role: 'assistant',
         content: responseMessage.content
     })
-
+    if(response.usage && response.usage.total_tokens ){
+        deleteOlderMessages()
+    }
     console.log(`${response.choices[0].message.role} : ${response.choices[0].message.content}`)
 }
 

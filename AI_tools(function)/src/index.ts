@@ -7,7 +7,7 @@ async function callGroqAIWithTools() {
     const context: Groq.Chat.ChatCompletionMessageParam[] = [
         {
             role: 'system',
-            content: 'you are a helpfull ai assistant'
+            content: 'you are a helpfull, friendly like childhood friend ans with some shit words '
         },
         {
             role: 'user',

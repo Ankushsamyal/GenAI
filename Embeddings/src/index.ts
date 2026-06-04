@@ -4,22 +4,26 @@ import { join } from "node:path";
 
 const hf = new HfInference(process.env.HF_API_KEY!);
 
-type DataWithEmbeddings ={
+export type DataWithEmbeddings ={
     input: string,
     embedding: number[]
 }
 
-async function generateEmbedding(input: string | string[]) {
+export async function generateEmbedding(input: string | string[]) {
     const response = await hf.featureExtraction({
         model: "sentence-transformers/all-MiniLM-L6-v2",
         inputs: input,
     });
 
     console.log(response);
+
+    if (typeof input === 'string') {
+        return [response as number[]] as number[][];
+    }
     return response as number[][];
 }
 
-function loadJSONData<T>(fileName:string) {
+export function loadJSONData<T>(fileName:string) {
     const path = join(__dirname, fileName);
     const rawData = readFileSync(path)
     return JSON.parse(rawData.toString());
